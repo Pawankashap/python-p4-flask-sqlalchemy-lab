@@ -11,8 +11,8 @@ class Zookeeper(db.Model):
     __tablename__ = 'zookeepers'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    birthday = db.Column(db.Date, nullable=False)
+    name = db.Column(db.String(255))
+    birthday = db.Column(db.Date)
 
     animals = db.relationship('Animal', backref='zookeeper')
 
@@ -32,8 +32,8 @@ class Animal(db.Model):
     __tablename__ = 'animals'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    species = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(255))
+    species = db.Column(db.String(255))
 
     zookeeper_id = db.Column(db.Integer, db.ForeignKey('zookeepers.id'))  
     enclosure_id = db.Column(db.Integer, db.ForeignKey('enclosures.id'))  
